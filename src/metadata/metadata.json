@@ -1,0 +1,125 @@
+{ 
+    "package": "MicrosoftEmotionAPI",
+    "tagline": "Microsoft Emotion API Wrapper",
+    "description": "Microsoft Emotion API allows you to build more personalized apps with Microsoft’s cutting edge cloud-based emotion recognition algorithm.",
+    "image": "http://logo.clearbit.com/microsoft.com",
+    "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MicrosoftEmotionAPI-package",
+    "accounts": {
+        "domain": "microsoft.com",
+        "credentials": [
+            "subscriptionKey"
+        ]
+    },
+    "blocks": [{
+        "name":"getEmotionRecognition",
+        "description": "Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face. The emotions detected are happiness, sadness, surprise, anger, fear, contempt, and disgust or neutral. ",
+        "args":[
+            {
+                "name": "subscriptionKey",
+                "type": "credentials",
+                "info": "Required: The api key obtained from Microsoft Cognitive Servisces."
+            },
+            {
+                "name": "image",
+                "type": "String",
+                "info": "Required: The image for recognizing."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getEmotionRecognitionInVideo",
+        "description": "Method recognizes the emotions expressed by the people in an image and returns their emotions.",
+        "args":[
+            {
+                "name": "subscriptionKey",
+                "type": "credentials",
+                "info": "Required: The api key obtained from Microsoft Cognitive Servisces."
+            },
+            {
+                "name": "video",
+                "type": "String",
+                "info": "Required: The video for recognizing."
+            },
+            {
+                "name": "outputStyle",
+                "type": "String",
+                "info": "Optional: Defaults to “aggregate” style, but a user can specify “perFrame” style."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getEmotionRecognitionWithFaceRectangles",
+        "description": "Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face.",
+        "args":[
+            {
+                "name": "subscriptionKey",
+                "type": "credentials",
+                "info": "Required: The api key obtained from Microsoft Cognitive Servisces."
+            },
+            {
+                "name": "image",
+                "type": "String",
+                "info": "Required: The image for recognizing."
+            },
+            {
+                "name": "faceRectangles",
+                "type": "String",
+                "info": "Optional: A face rectangle is in the form “left,top,width,height”. Delimited multiple face rectangles with a “;”."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }, {
+        "name":"getVideoRecognitionStatus",
+        "description": "Get recognition in Video operation result.",
+        "args":[
+            {
+                "name": "subscriptionKey",
+                "type": "credentials",
+                "info": "Required: The api key obtained from Microsoft Cognitive Servisces."
+            },
+            {
+                "name": "objectId",
+                "type": "String",
+                "info": "Required: The ID of the uploaded video for recognizing."
+            }
+        ],
+        "callbacks":[
+            {
+                "name":"error",
+                "info": "Error"
+            },
+            {
+                "name":"success",
+                "info": "Success => channels: Array <string>"
+            }
+        ]
+    }
+    ]
+}
