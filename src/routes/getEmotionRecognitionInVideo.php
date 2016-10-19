@@ -49,7 +49,11 @@ $app->post('/api/MicrosoftEmotionAPI/getEmotionRecognitionInVideo', function ($r
         $responseBody = $resp->getBody()->getContents();
         if($resp->getStatusCode() == '202') {
             $result['callback'] = 'success';
-            $result['contextWrites']['to'] = json_encode($resp->getHeader('Operation-Location'));
+            if(!empty($post_data['args']['runscope'])) {
+                $result['contextWrites']['to'] = json_decode($resp->getHeader('Operation-Location'));
+            } else {
+                $result['contextWrites']['to'] = json_encode($resp->getHeader('Operation-Location'));
+            }
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to'] = $responseBody;
