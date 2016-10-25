@@ -37,7 +37,7 @@
         ]
     }, {
         "name":"getEmotionRecognitionInVideo",
-        "description": "Method recognizes the emotions expressed by the people in an image and returns their emotions.",
+        "description": "Method recognizes the emotions expressed by the people in an image and returns their emotions. Currently support videos under 1MB.",
         "args":[
             {
                 "name": "subscriptionKey",
