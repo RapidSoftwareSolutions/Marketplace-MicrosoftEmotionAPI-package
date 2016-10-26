@@ -46,7 +46,7 @@ $app->post('/api/MicrosoftEmotionAPI/getEmotionRecognition', function ($request,
             if(!empty($post_data['args']['runscope'])) {
                 $result['contextWrites']['to'] = json_decode($responseBody);
             } else {
-                $result['contextWrites']['to'] = json_encode($responseBody);
+                $result['contextWrites']['to'] = $responseBody;
             }
         } else {
             $result['callback'] = 'error';
