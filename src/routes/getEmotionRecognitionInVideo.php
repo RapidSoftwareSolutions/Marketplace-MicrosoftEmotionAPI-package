@@ -55,7 +55,7 @@ $app->post('/api/MicrosoftEmotionAPI/getEmotionRecognitionInVideo', function ($r
         if($resp->getStatusCode() == '202') {
             $out = $resp->getHeader('Operation-Location');
             $result['callback'] = 'success';
-            $result['contextWrites']['to'][] = is_array($out) ? $out : json_decode($out);
+            $result['contextWrites']['to'][] = $out;
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
