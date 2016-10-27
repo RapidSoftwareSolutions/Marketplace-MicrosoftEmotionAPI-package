@@ -2,6 +2,8 @@
 
 namespace Tests\Functional;
 
+require_once __DIR__ . '/../../src/Models/paginationClass.php';
+
 class MicrosoftEmotionAPITest extends BaseTestCase {
     
     public $subscriptionKey = "a7aea4ec6fd84be69138a7b8b1b4c4d1";
@@ -36,9 +38,7 @@ class MicrosoftEmotionAPITest extends BaseTestCase {
         $response = $this->runApp('POST', '/api/MicrosoftEmotionAPI/getEmotionRecognitionInVideo', $post_data);
         
         $data = json_decode($response->getBody())->contextWrites->to;
-        $data = substr(stripslashes($data),1,-1);       
-        $res = json_decode($data);
-        $res = parse_url($res);
+        $res = parse_url($data[0][0]);
         $res = explode('/', $res['path']);
         $objectId = $res[4];
 

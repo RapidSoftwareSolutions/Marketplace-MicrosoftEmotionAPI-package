@@ -4,10 +4,14 @@ $app->post('/api/MicrosoftEmotionAPI/getEmotionRecognitionInVideo', function ($r
     $settings =  $this->settings;
     
     $data = $request->getBody();
-    $post_data = json_decode($data, true);
-    if(!isset($post_data['args'])) {
-        $data = $request->getParsedBody();
-        $post_data = $data;
+
+    if($data=='') {
+        $post_data = $request->getParsedBody();
+    } else {
+        $toJson = $this->toJson;
+        $data = $toJson->normalizeJson($data); 
+        $data = str_replace('\"', '"', $data);
+        $post_data = json_decode($data, true);
     }
     
     $error = [];
@@ -47,27 +51,35 @@ $app->post('/api/MicrosoftEmotionAPI/getEmotionRecognitionInVideo', function ($r
                 'verify' => false
             ]);
         $responseBody = $resp->getBody()->getContents();
+        
         if($resp->getStatusCode() == '202') {
+            $out = $resp->getHeader('Operation-Location');
             $result['callback'] = 'success';
-            if(!empty($post_data['args']['runscope'])) {
-                $result['contextWrites']['to'] = json_decode($resp->getHeader('Operation-Location'));
-            } else {
-                $result['contextWrites']['to'] = json_encode($resp->getHeader('Operation-Location'));
-            }
+            $result['contextWrites']['to'][] = is_array($out) ? $out : json_decode($out);
         } else {
             $result['callback'] = 'error';
-            $result['contextWrites']['to'] = $responseBody;
+            $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
         }
 
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
+
+        $responseBody = $exception->getResponse()->getBody();
+        $result['callback'] = 'error';
+        $result['contextWrites']['to'] = json_decode($responseBody);
+
+    } catch (GuzzleHttp\Exception\ServerException $exception) {
+
+        $responseBody = $exception->getResponse()->getBody(true);
+        $result['callback'] = 'error';
+        $result['contextWrites']['to'] = json_decode($responseBody);
+
+    } catch (GuzzleHttp\Exception\BadResponseException $exception) {
 
         $responseBody = $exception->getResponse()->getBody(true);
         $result['callback'] = 'error';
         $result['contextWrites']['to'] = json_decode($responseBody);
 
     }
-    
-    
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 });
