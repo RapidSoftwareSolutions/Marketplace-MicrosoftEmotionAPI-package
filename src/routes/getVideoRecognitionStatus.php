@@ -34,6 +34,7 @@ $app->post('/api/MicrosoftEmotionAPI/getVideoRecognitionStatus', function ($requ
     }
     
     if(!empty($error)) {
+        $result['callback'] = 'error';
         $result['contextWrites']['to']['status_code'] = "REQUIRED_FIELDS";
         $result['contextWrites']['to']['status_msg'] = "Please, check and fill in required fields.";
         $result['contextWrites']['to']['fields'] = $error;
