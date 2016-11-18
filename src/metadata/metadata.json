@@ -1,6 +1,6 @@
 { 
     "package": "MicrosoftEmotionAPI",
-    "tagline": "Microsoft Emotion API Wrapper",
+    "tagline": "Microsoft Emotion API",
     "description": "Microsoft Emotion API allows you to build more personalized apps with Microsoft’s cutting edge cloud-based emotion recognition algorithm.",
     "image": "http://logo.clearbit.com/microsoft.com",
     "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MicrosoftEmotionAPI-package",
