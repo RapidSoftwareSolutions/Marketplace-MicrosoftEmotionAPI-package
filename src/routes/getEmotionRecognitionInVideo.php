@@ -69,6 +69,10 @@ $app->post('/api/MicrosoftEmotionAPI/getEmotionRecognitionInVideo', function ($r
             $out = $resp->getHeader('Operation-Location');
             $result['callback'] = 'success';
             $result['contextWrites']['to'][] = $out;
+            if(empty($result['contextWrites']['to'])) {
+                $result['callback'] = 'success';
+                $result['contextWrites']['to']['status_msg'] = 'Api return no results';
+            }
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
