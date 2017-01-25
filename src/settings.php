@@ -16,6 +16,6 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         
-        'api_url' => 'https://api.projectoxford.ai/emotion/v1.0/'
+        'api_url' => 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/'
     ],
 ];
