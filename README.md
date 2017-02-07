@@ -1,5 +1,8 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/MicrosoftEmotionAPI/functions?utm_source=RapidAPIGitHub_MicrosoftEmotionFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
+
 # MicrosoftEmotionAPI Package
-Detect various emotions from a facial expression image.
+Detect various emotions from an image of a face. 
 * Domain: microsoft.com
 * Credentials: subscriptionKey
 
