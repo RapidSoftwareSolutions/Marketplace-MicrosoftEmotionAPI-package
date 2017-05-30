@@ -27,7 +27,7 @@ Method recognizes the emotions expressed by the people in an image and returns t
 |----------------|------------|----------
 | subscriptionKey| credentials| Required: The api key obtained from Microsoft Cognitive Services.
 | video          | File       | Required: The video for recognizing.
-| outputStyle    | String     | Optional: Defaults to “aggregate” style, but a user can specify “perFrame” style.
+| outputStyle    | Select     | Optional: Defaults to “aggregate” style, but a user can specify “perFrame” style.
 
 ## MicrosoftEmotionAPI.getEmotionRecognitionWithFaceRectangles
 Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face.

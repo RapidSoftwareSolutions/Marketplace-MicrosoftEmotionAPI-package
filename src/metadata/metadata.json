@@ -1,107 +1,152 @@
 {
-    "package": "MicrosoftEmotionAPI",
-    "tagline": "Microsoft Emotion API",
-    "description": "Detect various emotions from a facial expression image.",
-    "image": "http://logo.clearbit.com/microsoft.com",
-    "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MicrosoftEmotionAPI-package",
-    "keywords": ["AI", "API", "Microsoft", "artificial", "cognitive", "expression", "image", "images", "intelligence", "sentiment"],
-    "accounts": {
-        "domain": "microsoft.com",
-        "credentials": ["subscriptionKey"]
+  "package": "MicrosoftEmotionAPI",
+  "tagline": "Microsoft Emotion API",
+  "description": "Detect various emotions from a facial expression image.",
+  "image": "http://logo.clearbit.com/microsoft.com",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-MicrosoftEmotionAPI-package",
+  "keywords": [
+    "AI",
+    "API",
+    "Microsoft",
+    "artificial",
+    "cognitive",
+    "expression",
+    "image",
+    "images",
+    "intelligence",
+    "sentiment"
+  ],
+  "accounts": {
+    "domain": "microsoft.com",
+    "credentials": [
+      "subscriptionKey"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getEmotionRecognition",
+      "description": "Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face. The emotions detected are happiness, sadness, surprise, anger, fear, contempt, and disgust or neutral. ",
+      "args": [
+        {
+          "name": "subscriptionKey",
+          "type": "credentials",
+          "info": "The api key obtained from Microsoft Cognitive Servisces.",
+          "required": true
+        },
+        {
+          "name": "image",
+          "type": "File",
+          "info": "The image for recognizing.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
     },
-    "blocks": [{
-            "name": "getEmotionRecognition",
-            "description": "Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face. The emotions detected are happiness, sadness, surprise, anger, fear, contempt, and disgust or neutral. ",
-            "args": [{
-                    "name": "subscriptionKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Microsoft Cognitive Servisces.",
-                    "required": true
-                }, {
-                    "name": "image",
-                    "type": "File",
-                    "info": "The image for recognizing.",
-                    "required": true
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }, {
-            "name": "getEmotionRecognitionInVideo",
-            "description": "Method recognizes the emotions expressed by the people in an image and returns their emotions. Currently support videos under 1MB.",
-            "args": [{
-                    "name": "subscriptionKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Microsoft Cognitive Servisces.",
-                    "required": true
-                }, {
-                    "name": "video",
-                    "type": "File",
-                    "info": "The video for recognizing.",
-                    "required": true
-                }, {
-                    "name": "outputStyle",
-                    "type": "String",
-                    "info": "Defaults to \u201caggregate\u201d style, but a user can specify \u201cperFrame\u201d style.",
-                    "required": false
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }, {
-            "name": "getEmotionRecognitionWithFaceRectangles",
-            "description": "Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face.",
-            "args": [{
-                    "name": "subscriptionKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Microsoft Cognitive Servisces.",
-                    "required": true
-                }, {
-                    "name": "image",
-                    "type": "File",
-                    "info": "The image for recognizing.",
-                    "required": true
-                }, {
-                    "name": "faceRectangles",
-                    "type": "String",
-                    "info": "A face rectangle is in the form \u201cleft,top,width,height\u201d. Delimited multiple face rectangles with a \u201c;\u201d.",
-                    "required": false
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }, {
-            "name": "getVideoRecognitionStatus",
-            "description": "Get recognition in Video operation result.",
-            "args": [{
-                    "name": "subscriptionKey",
-                    "type": "credentials",
-                    "info": "The api key obtained from Microsoft Cognitive Servisces.",
-                    "required": true
-                }, {
-                    "name": "objectId",
-                    "type": "String",
-                    "info": "The ID of the uploaded video for recognizing.",
-                    "required": true
-                }],
-            "callbacks": [{
-                    "name": "error",
-                    "info": "Error"
-                }, {
-                    "name": "success",
-                    "info": "Success"
-                }]
-        }]
+    {
+      "name": "getEmotionRecognitionInVideo",
+      "description": "Method recognizes the emotions expressed by the people in an image and returns their emotions. Currently support videos under 1MB.",
+      "args": [
+        {
+          "name": "subscriptionKey",
+          "type": "credentials",
+          "info": "The api key obtained from Microsoft Cognitive Servisces.",
+          "required": true
+        },
+        {
+          "name": "video",
+          "type": "File",
+          "info": "The video for recognizing.",
+          "required": true
+        },
+        {
+          "name": "outputStyle",
+          "type": "Select",
+          "options": ["aggregate", "perFrame"],
+          "info": "Defaults to \u201caggregate\u201d style, but a user can specify \u201cperFrame\u201d style.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEmotionRecognitionWithFaceRectangles",
+      "description": "Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face.",
+      "args": [
+        {
+          "name": "subscriptionKey",
+          "type": "credentials",
+          "info": "The api key obtained from Microsoft Cognitive Servisces.",
+          "required": true
+        },
+        {
+          "name": "image",
+          "type": "File",
+          "info": "The image for recognizing.",
+          "required": true
+        },
+        {
+          "name": "faceRectangles",
+          "type": "String",
+          "info": "A face rectangle is in the form \u201cleft,top,width,height\u201d. Delimited multiple face rectangles with a \u201c;\u201d.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getVideoRecognitionStatus",
+      "description": "Get recognition in Video operation result.",
+      "args": [
+        {
+          "name": "subscriptionKey",
+          "type": "credentials",
+          "info": "The api key obtained from Microsoft Cognitive Servisces.",
+          "required": true
+        },
+        {
+          "name": "objectId",
+          "type": "String",
+          "info": "The ID of the uploaded video for recognizing.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
 }
