@@ -11,6 +11,16 @@ Detect various emotions from an image of a face.
  2. Create [Microsoft account](https://www.microsoft.com/cognitive-services/en-US/subscriptions) or log in. 
  3. Choose "Emotion - Preview" to create new subscription
  4. In **Key** section choose Key1 or Key2 and press <kbd>Show</kbd> or  <kbd>Copy</kbd>
+ 
+ ## Custom datatypes: 
+  |Datatype|Description|Example
+  |--------|-----------|----------
+  |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+  |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+  |List|Simple array|```["123", "sample"]``` 
+  |Select|String with predefined values|```sample```
+  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+  
 
 ## MicrosoftEmotionAPI.getEmotionRecognition
 Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face. The emotions detected are happiness, sadness, surprise, anger, fear, contempt, and disgust or neutral. 
