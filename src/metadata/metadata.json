@@ -52,41 +52,6 @@
       ]
     },
     {
-      "name": "getEmotionRecognitionInVideo",
-      "description": "Method recognizes the emotions expressed by the people in an image and returns their emotions. Currently support videos under 1MB.",
-      "args": [
-        {
-          "name": "subscriptionKey",
-          "type": "credentials",
-          "info": "The api key obtained from Microsoft Cognitive Servisces.",
-          "required": true
-        },
-        {
-          "name": "video",
-          "type": "File",
-          "info": "The video for recognizing.",
-          "required": true
-        },
-        {
-          "name": "outputStyle",
-          "type": "Select",
-          "options": ["aggregate", "perFrame"],
-          "info": "Defaults to \u201caggregate\u201d style, but a user can specify \u201cperFrame\u201d style.",
-          "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
       "name": "getEmotionRecognitionWithFaceRectangles",
       "description": "Recognizes the emotions expressed by one or more people in an image, as well as returns a bounding box for the face.",
       "args": [
@@ -107,34 +72,6 @@
           "type": "String",
           "info": "A face rectangle is in the form \u201cleft,top,width,height\u201d. Delimited multiple face rectangles with a \u201c;\u201d.",
           "required": false
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
-      "name": "getVideoRecognitionStatus",
-      "description": "Get recognition in Video operation result.",
-      "args": [
-        {
-          "name": "subscriptionKey",
-          "type": "credentials",
-          "info": "The api key obtained from Microsoft Cognitive Servisces.",
-          "required": true
-        },
-        {
-          "name": "objectId",
-          "type": "String",
-          "info": "The ID of the uploaded video for recognizing.",
-          "required": true
         }
       ],
       "callbacks": [
